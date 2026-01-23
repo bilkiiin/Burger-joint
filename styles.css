@@ -126,72 +126,48 @@ h1, h2, h3 { color: #000000; margin: 0; }
     margin-bottom: 20px;
 }
 
-/* --- УЛУЧШЕННАЯ АДАПТИВНОСТЬ --- */
+/* --- АДАПТИВНОСТЬ --- */
 
 @media (max-width: 850px) {
-    /* Перестраиваем Hero-секцию (Lead) */
     .lead {
         flex-direction: column-reverse; /* Картинка сверху, текст снизу */
         text-align: center;
-        padding: 20px 20px 40px; /* Уменьшаем боковые отступы */
-        gap: 20px;
-    }
-
-    .lead__content h1 {
-        font-size: 32px; /* Умеренный размер для смартфона */
-        margin-top: 10px;
-        padding: 0 10px;
-    }
-
-    .lead__content p {
-        font-size: 18px;
-        margin-bottom: 25px;
-        padding: 0 15px; /* Чтобы текст не лип к краям */
+        padding: 10px 20px 30px; /* Уменьшили отступы, чтобы контент поднялся выше */
+        gap: 10px;
     }
 
     .main__image {
-        max-width: 100%; /* Картинка на всю ширину */
-        transform: scale(1.1); /* Слегка увеличиваем для сочности */
+        /* УМЕНЬШАЕМ БУРГЕР */
+        width: 70%;            /* Занимает 70% ширины экрана вместо 100% */
+        max-width: 300px;      /* Не дает ему стать слишком большим */
+        height: auto;
+        margin: 0 auto;        /* Центрируем */
+        display: block;
+        transform: none;       /* Убираем scale(1.1), который его раздувал */
     }
 
-    /* Скрываем навигацию, если нет мобильного меню */
-    .nav {
-        display: none;
-    }
-    
-    .header__container {
-        padding: 15px 20px;
-    }
-}
-
-@media (max-width: 600px) {
-    /* Сетка меню: делаем карточки аккуратными */
-    .places__grid {
-        grid-template-columns: 1fr; /* Один столбец */
-        gap: 30px;
-        width: 90%; /* Оставляем воздух по бокам */
-    }
-
-    .menu__title {
-        font-size: 28px;
-        margin-bottom: 30px;
-    }
-
-    /* Кнопка на мобилке должна быть массивной */
-    .order-button {
-        width: 100%;
-        max-width: 300px; /* Но не на весь экран телевизора */
-        padding: 18px;
-        font-size: 20px;
-    }
-}
-
-/* Фикс для очень маленьких экранов (например, iPhone SE) */
-@media (max-width: 380px) {
     .lead__content h1 {
-        font-size: 28px;
+        font-size: 28px;       /* Уменьшаем шрифт заголовка */
+        margin: 10px 0;
     }
+
     .lead__content p {
         font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .nav {
+        display: none;         /* Скрываем лишнее меню */
     }
 }
+
+/* Фикс для очень маленьких экранов */
+@media (max-width: 390px) {
+    .main__image {
+        width: 60%;            /* На узких делаем бургер еще чуть компактнее */
+    }
+    
+    .lead__content h1 {
+        font-size: 24px;
+    }
+} 
