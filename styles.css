@@ -1,0 +1,192 @@
+body {
+    background: radial-gradient(circle at center, #ffffff 0%, #EDA418 80%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(24, 23, 23);
+}
+
+.cart {
+    width: 70px;
+    height: 70px;
+    background-color: #2D2D2D;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cart:hover { background-color: #444444; }
+
+/* Секция LEAD (бывшая main__hero) */
+.lead {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 6%;
+    gap: 40px;
+}
+
+.main__image {
+    flex: 1;
+    max-width: 600px;
+}
+
+.order-button {
+    background-color: #d20505;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Секция PLACES (бывшая menu) */
+.places {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.menu__title {
+    font-size: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.menu__grid {
+    display: grid;
+    /* Твое требование: строго 3 столбца */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 88%;
+}
+
+.menu__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu__item img {
+    width: 100%;
+    max-width: 250px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #000000;
+    text-align: center;
+}
+
+h1, h2, h3 { color: #000000; margin: 0; }
+
+.footer {
+    color: #000;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.footer__nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+/* --- АДАПТИВНАЯ ВЕРСТКА ПО ТЗ --- */
+
+/* 1. Планшеты и небольшие ноутбуки (992px) */
+@media (max-width: 992px) {
+    .places__grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки вместо 3 */
+        grid-template-rows: repeat(3, auto);   /* 3 строки по 2 карточки */
+        gap: 30px;
+    }
+}
+
+/* 2. Планшеты в вертикальном режиме (850px) */
+@media (max-width: 850px) {
+    .lead {
+        flex-direction: column-reverse; /* Картинка бургера будет НАД текстом */
+        text-align: center;
+        padding: 40px 6%;
+    }
+
+    .lead__content p { 
+        text-align: center; 
+    }
+    
+    .nav { 
+        display: none; /* Скрываем меню навигации для чистоты экрана */
+    }
+}
+
+/* 3. Маленькие планшеты и большие телефоны (600px) */
+@media (max-width: 600px) {
+    .places__grid {
+        grid-template-columns: 1fr; /* Одна колонка — карточки на весь экран */
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+    
+    .menu__title {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .footer__nav {
+        flex-direction: column; /* Ссылки в футере друг под другом */
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+/* 4. Маленькие телефоны (480px) */
+@media (max-width: 480px) {
+    .header__container { 
+        padding: 15px 6%; 
+    }
+    
+    .cart { 
+        width: 50px; 
+        height: 50px; 
+    }
+
+    .order-button { 
+        width: 100%; /* Кнопка во всю ширину — удобно нажимать большим пальцем */
+        padding: 15px;
+    }
+}
