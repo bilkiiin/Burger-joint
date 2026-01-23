@@ -126,67 +126,72 @@ h1, h2, h3 { color: #000000; margin: 0; }
     margin-bottom: 20px;
 }
 
-/* --- АДАПТИВНАЯ ВЕРСТКА ПО ТЗ --- */
+/* --- УЛУЧШЕННАЯ АДАПТИВНОСТЬ --- */
 
-/* 1. Планшеты и небольшие ноутбуки (992px) */
-@media (max-width: 992px) {
-    .places__grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки вместо 3 */
-        grid-template-rows: repeat(3, auto);   /* 3 строки по 2 карточки */
-        gap: 30px;
-    }
-}
-
-/* 2. Планшеты в вертикальном режиме (850px) */
 @media (max-width: 850px) {
+    /* Перестраиваем Hero-секцию (Lead) */
     .lead {
-        flex-direction: column-reverse; /* Картинка бургера будет НАД текстом */
+        flex-direction: column-reverse; /* Картинка сверху, текст снизу */
         text-align: center;
-        padding: 40px 6%;
-    }
-
-    .lead__content p { 
-        text-align: center; 
-    }
-    
-    .nav { 
-        display: none; /* Скрываем меню навигации для чистоты экрана */
-    }
-}
-
-/* 3. Маленькие планшеты и большие телефоны (600px) */
-@media (max-width: 600px) {
-    .places__grid {
-        grid-template-columns: 1fr; /* Одна колонка — карточки на весь экран */
-        grid-template-rows: auto;
+        padding: 20px 20px 40px; /* Уменьшаем боковые отступы */
         gap: 20px;
     }
+
+    .lead__content h1 {
+        font-size: 32px; /* Умеренный размер для смартфона */
+        margin-top: 10px;
+        padding: 0 10px;
+    }
+
+    .lead__content p {
+        font-size: 18px;
+        margin-bottom: 25px;
+        padding: 0 15px; /* Чтобы текст не лип к краям */
+    }
+
+    .main__image {
+        max-width: 100%; /* Картинка на всю ширину */
+        transform: scale(1.1); /* Слегка увеличиваем для сочности */
+    }
+
+    /* Скрываем навигацию, если нет мобильного меню */
+    .nav {
+        display: none;
+    }
     
+    .header__container {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Сетка меню: делаем карточки аккуратными */
+    .places__grid {
+        grid-template-columns: 1fr; /* Один столбец */
+        gap: 30px;
+        width: 90%; /* Оставляем воздух по бокам */
+    }
+
     .menu__title {
-        font-size: 30px;
+        font-size: 28px;
         margin-bottom: 30px;
     }
 
-    .footer__nav {
-        flex-direction: column; /* Ссылки в футере друг под другом */
-        align-items: center;
-        gap: 15px;
+    /* Кнопка на мобилке должна быть массивной */
+    .order-button {
+        width: 100%;
+        max-width: 300px; /* Но не на весь экран телевизора */
+        padding: 18px;
+        font-size: 20px;
     }
 }
 
-/* 4. Маленькие телефоны (480px) */
-@media (max-width: 480px) {
-    .header__container { 
-        padding: 15px 6%; 
+/* Фикс для очень маленьких экранов (например, iPhone SE) */
+@media (max-width: 380px) {
+    .lead__content h1 {
+        font-size: 28px;
     }
-    
-    .cart { 
-        width: 50px; 
-        height: 50px; 
-    }
-
-    .order-button { 
-        width: 100%; /* Кнопка во всю ширину — удобно нажимать большим пальцем */
-        padding: 15px;
+    .lead__content p {
+        font-size: 16px;
     }
 }
