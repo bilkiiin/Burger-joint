@@ -1,4 +1,4 @@
-body {
+html, body {
     background: radial-gradient(circle at center, #ffffff 0%, #EDA418 80%);
     background-attachment: fixed;
     min-height: 100vh;
@@ -43,7 +43,6 @@ a {
 
 .cart:hover { background-color: #444444; }
 
-/* Секция LEAD (бывшая main__hero) */
 .lead {
     display: flex;
     flex-direction: row;
@@ -70,7 +69,6 @@ a {
     transition: 0.3s;
 }
 
-/* Секция PLACES (бывшая menu) */
 .places {
     display: flex;
     flex-direction: column;
@@ -86,7 +84,6 @@ a {
 
 .menu__grid {
     display: grid;
-    /* Твое требование: строго 3 столбца */
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     width: 88%;
@@ -123,51 +120,113 @@ h1, h2, h3 { color: #000000; margin: 0; }
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-/* --- АДАПТИВНОСТЬ --- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; 
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box; 
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; 
+    margin: 0;
+    padding: 0;
+}
 
 @media (max-width: 850px) {
+    .header__container {
+        padding: 15px 50px 15px 20px; 
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .cart {
+        width: 35px;
+        height: 35px;
+        flex-shrink: 0; 
+        margin-right: 30px; 
+    }
+
+    .logo {
+        width: 320px; 
+        height: auto;
+    }
+    
     .lead {
-        flex-direction: column-reverse; /* Картинка сверху, текст снизу */
+        flex-direction: column-reverse;
         text-align: center;
-        padding: 10px 20px 30px; /* Уменьшили отступы, чтобы контент поднялся выше */
-        gap: 10px;
+        padding: 20px;
+        gap: 15px;
     }
 
     .main__image {
-        /* УМЕНЬШАЕМ БУРГЕР */
-        width: 70%;            /* Занимает 70% ширины экрана вместо 100% */
-        max-width: 300px;      /* Не дает ему стать слишком большим */
+        width: 75%;            
+        max-width: 280px;      
         height: auto;
-        margin: 0 auto;        /* Центрируем */
+        margin: 0 auto;
         display: block;
-        transform: none;       /* Убираем scale(1.1), который его раздувал */
+        transform: none;       
     }
 
     .lead__content h1 {
-        font-size: 28px;       /* Уменьшаем шрифт заголовка */
+        font-size: 24px;
         margin: 10px 0;
     }
 
     .lead__content p {
-        font-size: 16px;
+        font-size: 15px;
         margin-bottom: 20px;
+        padding: 0 10px;
     }
 
     .nav {
-        display: none;         /* Скрываем лишнее меню */
+        display: none;
+    }
+
+    .menu__grid {
+        grid-template-columns: 1fr; 
+        width: 90%;
+        margin: 0 auto;
+        gap: 25px;
+    }
+
+    .footer__nav {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
     }
 }
 
-/* Фикс для очень маленьких экранов */
 @media (max-width: 390px) {
-    .main__image {
-        width: 60%;            /* На узких делаем бургер еще чуть компактнее */
+    .header__container {
+        padding-right: 50px; 
     }
-    
+
+    .cart {
+        width: 45px;
+        height: 45px;
+    }
+
     .lead__content h1 {
-        font-size: 24px;
+        font-size: 22px;
     }
-} 
+
+    .main__image {
+        width: 65%; 
+    }
+}
