@@ -1,232 +1,123 @@
-html, body {
-    background: radial-gradient(circle at center, #ffffff 0%, #EDA418 80%);
-    background-attachment: fixed;
-    min-height: 100vh;
-    margin: 0;
-    font-family: sans-serif;
+/* --- ОБЩИЕ СБРОСЫ --- */
+* { box-sizing: border-box; } /* Учитываем padding и border в общей ширине элемента */
+html { scroll-behavior: smooth; } /* Плавная прокрутка при переходе по якорям */
+body {
+  margin: 0; /* Убираем отступы по умолчанию */
+  font-family: sans-serif; /* Основной шрифт */
+  background: radial-gradient(circle at center, #fff 0%, #EDA418 80%); /* Фон: радиальный градиент */
 }
 
+/* --- ШАПКА САЙТА --- */
 .header__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 6%;
-    font-size: 20px;
-    font-weight: 700;
+  display: flex; /* Горизонтальное расположение элементов */
+  justify-content: space-between; /* Лого слева, навигация по центру, корзина справа */
+  align-items: center; /* Выравнивание по вертикали */
+  padding: 20px 6%; /* Внутренние отступы */
 }
 
-.nav__list {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
+.nav__list { 
+  list-style: none; /* Убираем маркеры списка */
+  display: flex; /* Горизонтальное расположение ссылок */
+  gap: 30px; /* Расстояние между ссылками */
+  margin: 0; padding: 0;
 }
-
-a {
-    text-decoration: none;
-    color: rgb(24, 23, 23);
+.nav__list a { 
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #222; /* Цвет текста */
+  font-weight: 600; /* Жирность */
 }
+.nav__list a:hover { color: #d20505; } /* Цвет ссылки при наведении */
 
+/* --- КНОПКА КОРЗИНЫ --- */
 .cart {
-    width: 70px;
-    height: 70px;
-    background-color: #2D2D2D;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.3s;
+  width: 70px; height: 70px; /* Размер кнопки */
+  border-radius: 50%; /* Круглая форма */
+  background: #2D2D2D; /* Цвет фона */
+  color: #fff; /* Цвет текста */
+  border: none; /* Без рамки */
+  display: flex; align-items: center; justify-content: center; /* Центрирование содержимого */
+  cursor: pointer; /* Курсор "рука" */
 }
 
-.cart:hover { background-color: #444444; }
-
-.lead {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 50px 6%;
-    gap: 40px;
+/* --- ГЛАВНЫЙ ЭКРАН (HERO) --- */
+.lead { 
+  display: flex; /* Горизонтальное расположение */
+  justify-content: space-between; /* Текст слева, картинка справа */
+  padding: 50px 6%; /* Отступы */
+  gap: 40px; /* Расстояние между блоками */
 }
-
-.main__image {
-    flex: 1;
-    max-width: 600px;
-}
+.main__image { max-width: 600px; } /* Ограничение ширины картинки */
 
 .order-button {
-    background-color: #d20505;
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    font-size: 18px;
-    font-weight: 700;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: 0.3s;
+  background: #d20505; /* Красный фон */
+  color: #fff; /* Белый текст */
+  border: none; /* Без рамки */
+  padding: 15px 25px; /* Внутренние отступы */
+  border-radius: 100px; /* Овальная форма */
+  cursor: pointer; /* Курсор "рука" */
 }
+.order-button:hover { background: #ff0000; } /* Цвет при наведении */
 
-.places {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 0;
+/* --- СЕКЦИЯ МЕНЮ --- */
+.places { text-align: center; padding: 50px 0; } /* Центрирование и отступы */
+.menu__grid { 
+  display: grid; /* Сетка */
+  grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+  gap: 30px; /* Расстояние между карточками */
+  width: 88%; margin: auto; /* Центрирование */
 }
-
-.menu__title {
-    font-size: 40px;
-    margin-bottom: 40px;
-    text-align: center;
+.menu__item { 
+  background: #fff; /* Белый фон карточки */
+  padding: 20px; /* Внутренние отступы */
+  border-radius: 15px; /* Скругленные углы */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Тень */
 }
-
-.menu__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    width: 88%;
+.menu__item img { max-width: 250px; border-radius: 10px; } /* Картинка товара */
+.price { font-size: 18px; font-weight: bold; color: #d20505; } /* Цена товара */
+.add-to-cart { 
+  margin-top: 10px; 
+  padding: 10px 20px; 
+  background: #2D2D2D; 
+  color: #fff; 
+  border: none; 
+  cursor: pointer; 
+  border-radius: 8px; 
 }
+.add-to-cart:hover { background: #444; } /* Цвет кнопки при наведении */
 
-.menu__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* --- КОРЗИНА --- */
+.cart-section { padding: 40px; background: #f9f9f9; } /* Фон и отступы */
+#cart-list { list-style: none; padding: 0; } /* Список товаров без маркеров */
+#cart-list li { margin: 5px 0; } /* Отступы между товарами */
+
+/* --- ФОРМА ОФОРМЛЕНИЯ ЗАКАЗА --- */
+.checkout-form { padding: 40px; background: #fff; } /* Белый фон и отступы */
+.checkout-form form { display: flex; flex-direction: column; gap: 15px; } /* Вертикальное расположение полей */
+.checkout-form input, .checkout-form textarea { 
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 6px; 
 }
-
-.menu__item img {
-    width: 100%;
-    max-width: 250px;
+.checkout-form button { 
+  background: #d20505; 
+  color: #fff; 
+  border: none; 
+  padding: 12px; 
+  border-radius: 8px; 
+  cursor: pointer; 
 }
+.checkout-form button:hover { background: #ff0000; } /* Цвет кнопки при наведении */
 
-p {
-    font-size: 20px;
-    line-height: 1.8;
-    color: #000000;
-    text-align: center;
+/* --- ПОДВАЛ --- */
+.footer { 
+  text-align: center; /* Центрирование текста */
+  padding: 40px 0; /* Отступы */
+  background: #eee; /* Серый фон */
+  margin-top: 50px; /* Отступ сверху */
 }
-
-h1, h2, h3 { color: #000000; margin: 0; }
-
-.footer {
-    color: #000;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-}
-
-.footer__nav {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 10px;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    max-width: 100%;
-    overflow-x: hidden; 
-    position: relative;
-    margin: 0;
-    padding: 0;
-}
-
-* {
-    box-sizing: border-box; 
-}
-
-html, body {
-    max-width: 100%;
-    overflow-x: hidden; 
-    margin: 0;
-    padding: 0;
-}
-
-@media (max-width: 850px) {
-    .header__container {
-        padding: 15px 50px 15px 20px; 
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .cart {
-        width: 35px;
-        height: 35px;
-        flex-shrink: 0; 
-        margin-right: 30px; 
-    }
-
-    .logo {
-        width: 320px; 
-        height: auto;
-    }
-    
-    .lead {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 20px;
-        gap: 15px;
-    }
-
-    .main__image {
-        width: 75%;            
-        max-width: 280px;      
-        height: auto;
-        margin: 0 auto;
-        display: block;
-        transform: none;       
-    }
-
-    .lead__content h1 {
-        font-size: 24px;
-        margin: 10px 0;
-    }
-
-    .lead__content p {
-        font-size: 15px;
-        margin-bottom: 20px;
-        padding: 0 10px;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .menu__grid {
-        grid-template-columns: 1fr; 
-        width: 90%;
-        margin: 0 auto;
-        gap: 25px;
-    }
-
-    .footer__nav {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-}
-
-@media (max-width: 390px) {
-    .header__container {
-        padding-right: 50px; 
-    }
-
-    .cart {
-        width: 45px;
-        height: 45px;
-    }
-
-    .lead__content h1 {
-        font-size: 22px;
-    }
-
-    .main__image {
-        width: 65%; 
-    }
+.footer__nav { 
+  display: flex; /* Горизонтальное расположение ссылок */
+  justify-content: center; /* Центрирование */
+  gap: 40px; /* Расстояние между ссылками */
+  margin-bottom: 20px; /* Отступ снизу */
 }
