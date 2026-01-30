@@ -1,72 +1,111 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!DOCTYPE html> <!-- Определяем тип документа как HTML5 -->
+<html lang="ru"> <!-- Указываем язык содержимого страницы -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бургерная</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8"> <!-- Кодировка символов -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Адаптивность для мобильных устройств -->
+  <title>Бургерная — Онлайн магазин</title> <!-- Заголовок вкладки браузера -->
+  <link rel="stylesheet" href="styles.css"> <!-- Подключение внешнего CSS -->
 </head>
 <body>
-    <header>
-        <div class="header__container">
-            <img src="image/logo.svg" alt="Vintage Food Logo" class="logo">
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#">Акции</a></li>
-                    <li><a href="#">О нас</a></li>
-                </ul>
-            </nav>
-            <button class="cart">
-                <img src="image/cart.svg" alt="Cart">
-            </button>   
+  <!-- ШАПКА САЙТА -->
+  <header>
+    <div class="header__container"> <!-- Контейнер для логотипа, навигации и корзины -->
+      <img src="image/logo.svg" alt="Vintage Food Logo" class="logo"> <!-- Логотип -->
+      <nav class="nav"> <!-- Навигационное меню -->
+        <ul class="nav__list">
+          <li><a href="#home">Главная</a></li> <!-- Ссылка на главный экран -->
+          <li><a href="#menu">Меню</a></li> <!-- Ссылка на раздел меню -->
+          <li><a href="#about">О нас</a></li> <!-- Ссылка на футер (о компании) -->
+        </ul>
+      </nav>
+      <button class="cart"> <!-- Кнопка корзины -->
+        <img src="image/cart.svg" alt="Cart"> <!-- Иконка корзины -->
+        <span id="cart-count">0</span> <!-- Счетчик товаров -->
+      </button>
+    </div>
+  </header>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <main>
+    <!-- Герой-блок (главный экран) -->
+    <section class="lead" id="home">
+      <div class="hero__container">
+        <h1>Быстрая доставка для Вас</h1> <!-- Заголовок -->
+        <p>Сделай первый заказ и получи скидку 50%!</p> <!-- Промо-текст -->
+        <button class="order-button">Заказать</button> <!-- Кнопка заказа -->
+      </div>
+      <img src="image/Фото _Бургер_.png" alt="Delicious Burger" class="main__image"> <!-- Изображение бургера -->
+    </section>
+
+    <!-- Раздел меню -->
+    <section class="places" id="menu">
+      <h2 class="menu__title">Меню</h2>
+      <div class="menu__grid"> <!-- Сетка товаров -->
+        <!-- Карточка товара -->
+        <div class="menu__item">
+          <img src="image/Картинка _Бургеры_.png" alt="Бургеры">
+          <h3>Классический бургер</h3>
+          <p>Сочный бифштекс, сыр и овощи.</p>
+          <span class="price">250 ₽</span> <!-- Цена -->
+          <button class="add-to-cart">Добавить</button> <!-- Кнопка добавления в корзину -->
         </div>
-    </header>
-
-    <main class="main">
-        <section class="lead"> 
-            <div class="hero__container"> 
-                <h1>Быстрая доставка для Вас</h1>
-                <p>Сделай первый заказ и получи скидку 50%!</p>
-                <button class="order-button">Заказать</button>
-            </div>
-            <img src="image/Фото _Бургер_.png" alt="Delicious Burger" class="main__image">
-        </section>
-
-        <section class="intro"></section>
-
-        <section class="places">
-            <h2 class="menu__title">Меню</h2>  
-            <div class="menu__grid">
-                <div class="menu__item"><img src="image/Картинка _Бургеры_.png" alt="Бургеры"><p>Бургеры</p></div>
-                <div class="menu__item"><img src="image/Картинка _Блюда из курицы_.png" alt="Курица"><p>Блюда из курицы</p></div>
-                <div class="menu__item"><img src="image/Картинка _Горячие блюда_.png" alt="Горячее"><p>Горячие блюда</p></div>
-                <div class="menu__item"><img src="image/Картинка _Закуски_.png" alt="Закуски"><p>Закуски</p></div>
-                <div class="menu__item"><img src="image/Картинка _Салаты_.png" alt="Салаты"><p>Салаты</p></div>
-                <div class="menu__item"><img src="image/Картинка _Десерты_.png" alt="Десерты"><p>Десерты</p></div>
-            </div>
-        </section>
-
-        <section class="video"></section>
-        <section class="cover"></section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer__container">
-            <nav class="footer__nav">
-                <a href="#">Программа лояльности</a>
-                <a href="#">Политика конфиденциальности</a>
-                <a href="#">Договор оферты</a>
-            </nav>
-            <div class="footer__copy">
-                <p>ООО «Vintage Food»</p>
-                <p>© Все права защищены</p>
-            </div>
-            <div class="footer__socials">
-                <a href="#"><img src="image/VK Circled.svg" alt="VK"></a>
-                <a href="#"><img src="image/Telegram.svg" alt="Telegram"></a>
-            </div>
+        <!-- Карточка товара -->
+        <div class="menu__item">
+          <img src="image/Картинка _Блюда из курицы_.png" alt="Курица">
+          <h3>Куриные крылышки</h3>
+          <p>Хрустящие крылышки с соусом BBQ.</p>
+          <span class="price">300 ₽</span>
+          <button class="add-to-cart">Добавить</button>
         </div>
-    </footer>
+        <!-- Карточка товара -->
+        <div class="menu__item">
+          <img src="image/Картинка _Десерты_.png" alt="Десерты">
+          <h3>Чизкейк</h3>
+          <p>Нежный десерт с клубничным топпингом.</p>
+          <span class="price">180 ₽</span>
+          <button class="add-to-cart">Добавить</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Корзина -->
+    <section class="cart-section">
+      <h2>Ваша корзина</h2>
+      <ul id="cart-list"></ul> <!-- Список товаров в корзине -->
+      <p>Итого: <span id="cart-total">0 ₽</span></p> <!-- Итоговая сумма -->
+      <button id="checkout-btn">Оформить заказ</button> <!-- Кнопка оформления -->
+      <button id="clear-btn">Очистить корзину</button> <!-- Кнопка очистки -->
+    </section>
+
+    <!-- Форма оформления заказа -->
+    <section class="checkout-form" style="display:none;">
+      <h2>Оформление заказа</h2>
+      <form id="order-form">
+        <input type="text" name="name" placeholder="Ваше имя" required> <!-- Поле имя -->
+        <input type="tel" name="phone" placeholder="Телефон" required> <!-- Поле телефон -->
+        <input type="text" name="address" placeholder="Адрес доставки" required> <!-- Поле адрес -->
+        <textarea name="comment" placeholder="Комментарий"></textarea> <!-- Поле комментарий -->
+        <button type="submit">Отправить заказ</button> <!-- Кнопка отправки -->
+      </form>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="footer" id="about">
+    <div class="footer__container">
+      <nav class="footer__nav"> <!-- Навигация в футере -->
+        <a href="#">Программа лояльности</a>
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Договор оферты</a>
+      </nav>
+      <div class="footer__copy"> <!-- Авторские права -->
+        <p>ООО «Vintage Food»</p>
+        <p>© Все права защищены</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Подключение JS -->
+  <script src="script.js"></script>
 </body>
 </html>
