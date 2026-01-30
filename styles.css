@@ -121,3 +121,67 @@ body {
   gap: 40px; /* Расстояние между ссылками */
   margin-bottom: 20px; /* Отступ снизу */
 }
+
+/* --- Планшеты (до 850px) --- */
+@media (max-width: 850px) {
+  .header__container {
+    flex-direction: column; /* Лого сверху, навигация и корзина ниже */
+    gap: 15px;
+  }
+
+  .nav__list {
+    flex-direction: column; /* Ссылки в столбик */
+    gap: 15px;
+  }
+
+  .lead {
+    flex-direction: column-reverse; /* Картинка сверху, текст снизу */
+    text-align: center;
+  }
+
+  .menu__grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки вместо 3 */
+  }
+}
+
+/* --- Смартфоны (до 480px) --- */
+@media (max-width: 480px) {
+  .header__container {
+    padding: 10px;
+  }
+
+  .logo {
+    max-width: 180px; /* Уменьшаем логотип */
+  }
+
+  .nav__list {
+    display: none; /* Можно скрыть навигацию и заменить на бургер-меню */
+  }
+
+  .cart {
+    width: 55px; height: 55px; /* Компактная корзина */
+  }
+
+  .order-button {
+    width: 100%; /* Кнопка на всю ширину */
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .menu__grid {
+    grid-template-columns: 1fr; /* Одна колонка */
+  }
+
+  .menu__item img {
+    max-width: 100%; /* Картинка растягивается по ширине блока */
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .footer__nav {
+    flex-direction: column; /* Ссылки в футере в столбик */
+    gap: 10px;
+  }
+}
