@@ -122,6 +122,7 @@ body {
   margin-bottom: 20px; /* Отступ снизу */
 }
 
+
 /* --- Планшеты (до 850px) --- */
 @media (max-width: 850px) {
   .header__container {
