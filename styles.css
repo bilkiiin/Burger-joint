@@ -39,6 +39,17 @@ body {
   cursor: pointer; /* Курсор "рука" */
 }
 
+#cart-count {
+  position: absolute; /* Абсолютное позиционирование */
+  top: 46px; right: 45px; /* Положение счетчика относительно кнопки */
+  background: #d20505; /* Красный фон */
+  color: #fff; /* Белый текст */
+  width: 20px; height: 20px; /* Размер счетчика */
+  border-radius: 50%; /* Круглая форма */
+  display: flex; align-items: center; justify-content: center; /* Центрирование текста */
+  font-size: 12px; font-weight: bold;
+}
+
 /* --- ГЛАВНЫЙ ЭКРАН (HERO) --- */
 .lead { 
   display: flex; /* Горизонтальное расположение */
@@ -86,7 +97,7 @@ body {
 .add-to-cart:hover { background: #444; } /* Цвет кнопки при наведении */
 
 /* --- КОРЗИНА --- */
-.cart-section { padding: 40px; background: #f9f9f9; } /* Фон и отступы */
+.cart-section { padding: 40px; background: #ad8347; } /* Фон и отступы */
 #cart-list { list-style: none; padding: 0; } /* Список товаров без маркеров */
 #cart-list li { margin: 5px 0; } /* Отступы между товарами */
 
@@ -112,7 +123,7 @@ body {
 .footer { 
   text-align: center; /* Центрирование текста */
   padding: 40px 0; /* Отступы */
-  background: #eee; /* Серый фон */
+  background: #4f4f4f; /* Серый фон */
   margin-top: 50px; /* Отступ сверху */
 }
 .footer__nav { 
@@ -121,7 +132,10 @@ body {
   gap: 40px; /* Расстояние между ссылками */
   margin-bottom: 20px; /* Отступ снизу */
 }
-
+a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #fff; /* Белый цвет текста */
+}
 
 /* --- Планшеты (до 850px) --- */
 @media (max-width: 850px) {
